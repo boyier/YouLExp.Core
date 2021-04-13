@@ -4,6 +4,9 @@ using System.Text;
 
 namespace YouLExp.Core
 {
+    /// <summary>
+    /// <see cref="DateTime"/>扩展类
+    /// </summary>
     public static class DateTimeExtend
     {
         /// <summary>

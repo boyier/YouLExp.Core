@@ -10,6 +10,8 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <PackageReleaseNotes>通用扩展类库，.net standard2.0;.net standard2.1;net5.0多平台版本支持</PackageReleaseNotes>
 	  <PackageTags>youl</PackageTags>
+	  <PackageIcon>YouLLogo.png</PackageIcon>
+	  <PackageIconUrl />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.1|AnyCPU'">
@@ -19,5 +21,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.1|AnyCPU'">
     <DocumentationFile>E:\TeldWorkPub\YouLExp\YouLExp.Core\YouLExp.Core.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="D:\User\Pictures\IconIfont\YouLLogo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

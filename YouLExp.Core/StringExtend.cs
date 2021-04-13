@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace YouLExp.Core
 {
+    /// <summary>
+    /// 字符串扩展类
+    /// </summary>
     public static class StringExtend
     {
         /// <summary>

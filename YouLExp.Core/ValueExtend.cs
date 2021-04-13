@@ -4,6 +4,9 @@ using System.Text;
 
 namespace YouLExp.Core
 {
+    /// <summary>
+    /// 数值扩展类
+    /// </summary>
     public static class ValueExtend
     {
         #region decimal
