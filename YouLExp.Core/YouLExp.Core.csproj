@@ -6,12 +6,13 @@
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <Authors>悠之瑾落</Authors>
 	  <Description>通用扩展类库</Description>
-	  <Version>1.0.0.1</Version>
+	  <Version>1.0.0.2</Version>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <PackageReleaseNotes>通用扩展类库，.net standard2.0;.net standard2.1;net5.0多平台版本支持</PackageReleaseNotes>
 	  <PackageTags>youl</PackageTags>
 	  <PackageIcon>YouLLogo.png</PackageIcon>
 	  <PackageIconUrl />
+	  <PackageProjectUrl>https://github.com/boyier/YouLExp.Core</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.1|AnyCPU'">
