@@ -4,10 +4,43 @@
         <name>YouLExp.Core</name>
     </assembly>
     <members>
+        <member name="T:YouLExp.Core.Comparers.EntityComparer`1">
+            <summary>
+            通用的实体类比较器
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:YouLExp.Core.Comparers.EntityComparer`1.#ctor(System.Func{`0,`0,System.Boolean})">
+            <summary>
+            通用的实体类比较器
+            </summary>
+            <param name="predicate">多条件筛选</param>
+        </member>
+        <member name="M:YouLExp.Core.Comparers.EntityComparer`1.#ctor(System.Func{`0,System.Object})">
+            <summary>
+            通用的实体类比较器
+            </summary>
+            <param name="predicate">筛选条件</param>
+        </member>
+        <member name="M:YouLExp.Core.Comparers.EntityComparer`1.Equals(`0,`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YouLExp.Core.Comparers.EntityComparer`1.GetHashCode(`0)">
+            <inheritdoc/>
+        </member>
         <member name="T:YouLExp.Core.DataTableExtend">
             <summary>
             <see cref="T:System.Data.DataTable"/>扩展类
             </summary>
+        </member>
+        <member name="M:YouLExp.Core.DataTableExtend.ContainsColunmName(System.Data.DataRow,System.String)">
+            <summary>
+            判断<see cref="T:System.Data.DataRow"/>行中是否存在<see cref="T:System.Data.DataColumn"/>列
+            </summary>
+            <param name="dr">要验证的行</param>
+            <param name="colunmName">列名</param>
+            <returns></returns>
         </member>
         <member name="T:YouLExp.Core.DateTimeExtend">
             <summary>
@@ -22,10 +55,139 @@
             <param name="format"></param>
             <returns></returns>
         </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToMonthOfFirst(System.DateTime)">
+            <summary>
+            返回当前月的第一天（01）
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToMonthOfFast(System.DateTime)">
+            <summary>
+            返回当前月的最后一天（28、29、30、31）
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToWeekOfFirst(System.DateTime)">
+            <summary>
+            返回本周的第一天（星期一）
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToWeekOfFast(System.DateTime)">
+            <summary>
+            返回本周的最后一天（星期日）
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToSeasonOfFirst(System.DateTime)">
+            <summary>
+            获取本季度的第一天
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToSeasonOfFast(System.DateTime)">
+            <summary>
+            获取本季度的最后一天
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToYearOfFirst(System.DateTime)">
+            <summary>
+            获取本年年初（1月1号）
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToYearOfFast(System.DateTime)">
+            <summary>
+            获取本年年末（12月31日）
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToDayOfFirst(System.DateTime)">
+            <summary>
+            获取当天的凌晨（00:00:00.000）
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToDayOfFast(System.DateTime)">
+            <summary>
+            获取当天最后时间（23:59:59.999）
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToTimeStamp(System.DateTime)">
+            <summary>
+            获取当前时间的时间戳（13位）
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToTimeStampOfDateTime(System.Int64)">
+            <summary>        
+            将<see cref="T:System.Int64"/>类型的时间戳转为<see cref="T:System.DateTime"/>     
+            </summary>        
+            <param name="timeStamp">时间戳</param>        
+            <returns></returns>        
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToDateTimeOffset(System.DateTime,System.DateTimeKind)">
+            <summary>
+            将<see cref="T:System.DateTime"/>转换为<see cref="T:System.DateTimeOffset"/>
+            </summary>
+            <param name="dateTime"></param>
+            <param name="kind">Specifies whether a <see cref="T:System.DateTime"/> object represents a local time, a Coordinated Universal Time (UTC), or is not specified as either local time or UTC.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToUtcDateTime(System.DateTimeOffset)">
+            <summary>
+            将<see cref="T:System.DateTimeOffset"/>转换为UTC时间<see cref="T:System.DateTime"/>
+            </summary>
+            <param name="dateTimeOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToDateTime(System.DateTimeOffset)">
+            <summary>
+            将<see cref="T:System.DateTimeOffset"/>转换为<see cref="T:System.DateTime"/>
+            </summary>
+            <param name="dateTimeOffset"></param>
+            <returns></returns>
+        </member>
         <member name="T:YouLExp.Core.DictionaryExtend">
             <summary>
             字典扩展类
             </summary>
+        </member>
+        <member name="T:YouLExp.Core.ListExtend">
+            <summary>
+            集合列表扩展类
+            </summary>
+        </member>
+        <member name="M:YouLExp.Core.ListExtend.Distinct``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Object})">
+            <summary>
+            对<see cref="T:System.Collections.Generic.IEnumerable`1"/>实体类集合按条件去重处理
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="predicate">过滤条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.ListExtend.Distinct``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,System.Boolean})">
+            <summary>
+            对<see cref="T:System.Collections.Generic.IEnumerable`1"/>实体类集合按条件去重处理
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="multipPredicate">多条件过滤</param>
+            <returns></returns>
         </member>
         <member name="T:YouLExp.Core.StringExtend">
             <summary>
@@ -81,6 +243,45 @@
             验证字符串格式是否为车牌号（包含新能源车牌）
             </summary>
             <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.ValidExtend.IsValidPassword(System.String)">
+            <summary>
+            验证字符串是否符合强密码格式（必须包含大小写字母和数字的组合，不能使用特殊字符，长度在 8-10 之间）
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.ValidExtend.IsValidPasswordEx(System.String)">
+            <summary>
+            验证字符串是否符合强密码格式（必须包含大小写字母和数字的组合，可以使用特殊字符，长度在8-10之间）
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.ValidExtend.IsRegexMatch(System.String,System.String)">
+            <summary>
+            正则表达式校验
+            </summary>
+            <param name="text"></param>
+            <param name="reg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.ValidExtend.IsRegexMatch(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            正则表达式校验
+            </summary>
+            <param name="text"></param>
+            <param name="reg"></param>
+            <param name="regex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YouLExp.Core.ValidExtend.IsRegexMatch(System.String,System.Text.RegularExpressions.Regex)">
+            <summary>
+            正则表达式校验
+            </summary>
+            <param name="text"></param>
+            <param name="regex"></param>
             <returns></returns>
         </member>
         <member name="T:YouLExp.Core.ValueExtend">
