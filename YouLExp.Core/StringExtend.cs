@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace YouLExp.Core
 {
@@ -51,5 +52,6 @@ namespace YouLExp.Core
         {
             return string.Join(separator, values);
         }
+
     }
 }
