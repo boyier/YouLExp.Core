@@ -8,7 +8,6 @@ namespace YouLExp.Core.Comparers
     /// 通用的实体类比较器
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TResult"></typeparam>
     public class EntityComparer<T> : IEqualityComparer<T>
     {
         private readonly Func<T, object> _func;

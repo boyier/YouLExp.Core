@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace YouLExp.Core
@@ -112,7 +113,7 @@ namespace YouLExp.Core
         /// 获取本年年初（1月1号）
         /// </summary>
         /// <param name="dateTime"></param>
-        /// <returns></returns>
+        /// <returns>本年年初</returns>
         public static DateTime ToYearOfFirst(this DateTime dateTime)
         {
             return dateTime.AddMonths(1 - dateTime.Month).AddDays(1 - dateTime.Day);
@@ -122,7 +123,7 @@ namespace YouLExp.Core
         /// 获取本年年末（12月31日）
         /// </summary>
         /// <param name="dateTime"></param>
-        /// <returns></returns>
+        /// <returns>本年年末</returns>
         public static DateTime ToYearOfFast(this DateTime dateTime)
         {
             return dateTime.AddMonths(1 - dateTime.Month).AddDays(1 - dateTime.Day).AddYears(1).AddDays(-1);
@@ -132,7 +133,7 @@ namespace YouLExp.Core
         /// 获取当天的凌晨（00:00:00.000）
         /// </summary>
         /// <param name="dateTime"></param>
-        /// <returns></returns>
+        /// <returns>返回当天的凌晨</returns>
         public static DateTime ToDayOfFirst(this DateTime dateTime)
         {
             return dateTime.Date;
@@ -142,10 +143,31 @@ namespace YouLExp.Core
         /// 获取当天最后时间（23:59:59.999）
         /// </summary>
         /// <param name="dateTime"></param>
-        /// <returns></returns>
+        /// <returns>返回当天最后时间</returns>
         public static DateTime ToDayOfFast(this DateTime dateTime)
         {
             return dateTime.Date.AddDays(1).AddMilliseconds(-1);
+        }
+
+        /// <summary>
+        /// 获取当前是第几个周
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <param name="culture"></param>
+        /// <returns>返回周数</returns>
+        public static int ToWeekOfYear(this DateTime dateTime, CultureInfo culture)
+        {
+            return culture.Calendar.GetWeekOfYear(dateTime, culture.DateTimeFormat.CalendarWeekRule, culture.DateTimeFormat.FirstDayOfWeek) - 1;
+        }
+
+        /// <summary>
+        /// 获取当前是第几个周(按照zh-CN标准)
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns>返回周数</returns>
+        public static int ToWeekOfYear(this DateTime dateTime)
+        {
+            return ToWeekOfYear(dateTime, new CultureInfo("zh-CN"));
         }
 
         #region 时间戳

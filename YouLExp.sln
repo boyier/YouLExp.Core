@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YouLExp.Core", "YouLExp.Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouLExp.CoreTests", "YouLExp.CoreTests\YouLExp.CoreTests.csproj", "{BA9E642B-80B7-4183-B113-ED97F802376F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouLExp.Core.TestConsole", "YouLExp.Core.TestConsole\YouLExp.Core.TestConsole.csproj", "{0C599AB0-299F-4DF4-B82F-CAFFB020A9A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BA9E642B-80B7-4183-B113-ED97F802376F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA9E642B-80B7-4183-B113-ED97F802376F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA9E642B-80B7-4183-B113-ED97F802376F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C599AB0-299F-4DF4-B82F-CAFFB020A9A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C599AB0-299F-4DF4-B82F-CAFFB020A9A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C599AB0-299F-4DF4-B82F-CAFFB020A9A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C599AB0-299F-4DF4-B82F-CAFFB020A9A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

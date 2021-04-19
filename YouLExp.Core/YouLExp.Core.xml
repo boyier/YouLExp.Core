@@ -9,7 +9,6 @@
             通用的实体类比较器
             </summary>
             <typeparam name="T"></typeparam>
-            <typeparam name="TResult"></typeparam>
         </member>
         <member name="M:YouLExp.Core.Comparers.EntityComparer`1.#ctor(System.Func{`0,`0,System.Boolean})">
             <summary>
@@ -102,28 +101,43 @@
             获取本年年初（1月1号）
             </summary>
             <param name="dateTime"></param>
-            <returns></returns>
+            <returns>本年年初</returns>
         </member>
         <member name="M:YouLExp.Core.DateTimeExtend.ToYearOfFast(System.DateTime)">
             <summary>
             获取本年年末（12月31日）
             </summary>
             <param name="dateTime"></param>
-            <returns></returns>
+            <returns>本年年末</returns>
         </member>
         <member name="M:YouLExp.Core.DateTimeExtend.ToDayOfFirst(System.DateTime)">
             <summary>
             获取当天的凌晨（00:00:00.000）
             </summary>
             <param name="dateTime"></param>
-            <returns></returns>
+            <returns>返回当天的凌晨</returns>
         </member>
         <member name="M:YouLExp.Core.DateTimeExtend.ToDayOfFast(System.DateTime)">
             <summary>
             获取当天最后时间（23:59:59.999）
             </summary>
             <param name="dateTime"></param>
-            <returns></returns>
+            <returns>返回当天最后时间</returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToWeekOfYear(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            获取当前是第几个周
+            </summary>
+            <param name="dateTime"></param>
+            <param name="culture"></param>
+            <returns>返回周数</returns>
+        </member>
+        <member name="M:YouLExp.Core.DateTimeExtend.ToWeekOfYear(System.DateTime)">
+            <summary>
+            获取当前是第几个周(按照zh-CN标准)
+            </summary>
+            <param name="dateTime"></param>
+            <returns>返回周数</returns>
         </member>
         <member name="M:YouLExp.Core.DateTimeExtend.ToTimeStamp(System.DateTime)">
             <summary>
@@ -165,6 +179,17 @@
             <summary>
             字典扩展类
             </summary>
+        </member>
+        <member name="M:YouLExp.Core.DictionaryExtend.GetValue``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <summary>
+            根据Key从<see cref="T:System.Collections.Generic.Dictionary`2"/>中获取Value值，找不到则返回默认值
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="dict"></param>
+            <param name="name"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
         </member>
         <member name="T:YouLExp.Core.ListExtend">
             <summary>
