@@ -150,7 +150,7 @@ namespace YouLExp.Core
         }
 
         /// <summary>
-        /// 获取当前是第几个周
+        /// 获取当前是第几个周(从0周开始)
         /// </summary>
         /// <param name="dateTime"></param>
         /// <param name="culture"></param>
@@ -161,7 +161,7 @@ namespace YouLExp.Core
         }
 
         /// <summary>
-        /// 获取当前是第几个周(按照zh-CN标准)
+        /// 获取当前是第几个周(从0周开始)
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns>返回周数</returns>
