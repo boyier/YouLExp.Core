@@ -59,15 +59,16 @@ namespace YouLExp.Core
         /// 获取字符串文本每个字的拼音首字母并拼接起来
         /// </summary>
         /// <param name="chText">默认获取字符串第一个字符的首字母</param>
+        /// <param name="isOR">识别字符失败后是否返回原值</param>
         /// <returns>返回每个字的拼音首字母组成的字符串 </returns>
-        public static string GetCNCharSpell(this string chText)
+        public static string GetCNCharSpell(this string chText, bool isOR = false)
         {
             int len = chText.Length;
             StringBuilder text = new StringBuilder();
 
             for (int i = 0; i < len; i++)
             {
-                text.Append(GetCNCharSpell(chText.Substring(i, 1)[0]));
+                text.Append(GetCNCharSpell(chText.Substring(i, 1)[0], isOR));
             }
 
             return text.ToString();
@@ -77,10 +78,11 @@ namespace YouLExp.Core
         /// 获取拼音首字母
         /// </summary>
         /// <param name="cnchar">默认获取字符串第一个字符的首字母</param>
+        /// <param name="isOR">识别字符失败后是否返回原值</param>
         /// <returns>返回字符串第一个字的首字母</returns>
-        public static string GetCNCharSpell(this char cnchar)
+        public static string GetCNCharSpell(this char cnchar, bool isOR = false)
         {
-            return GetSpell(cnchar.ToString());
+            return GetSpell(cnchar.ToString(), isOR);
 
             //var val = Encoding.Default.GetBytes(chChar);
             //long longchar;
@@ -144,7 +146,7 @@ namespace YouLExp.Core
         }
 
 
-        private static string GetSpell(string cnChar)
+        private static string GetSpell(string cnChar, bool isOriginalReturn)
         {
             //将汉字转化为ASNI码,二进制序列 
             byte[] arrCN = Encoding.Default.GetBytes(cnChar);
@@ -155,16 +157,18 @@ namespace YouLExp.Core
                 int pos = (short)arrCN[1];
                 int code = (area << 8) + pos;
                 int[] areacode = { 45217, 45253, 45761, 46318, 46826, 47010, 47297, 47614, 48119, 48119, 49062, 49324, 49896, 50371, 50614, 50622, 50906, 51387, 51446, 52218, 52698, 52698, 52698, 52980, 53689, 54481 };
+                int max;
                 for (int i = 0; i < 26; i++)
                 {
-                    int max = 55290;
-                    if (i != 25) max = areacode[i + 1];
+                    max = 55290;
+
+                    if (i != 25) 
+                        max = areacode[i + 1];
+
                     if (areacode[i] <= code && code < max)
-                    {
                         return Encoding.Default.GetString(new byte[] { (byte)(65 + i) });
-                    }
                 }
-                return "?";
+                return isOriginalReturn ? cnChar : "?";
             }
             else return cnChar;
         }
