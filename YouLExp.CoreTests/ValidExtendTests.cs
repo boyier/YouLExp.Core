@@ -35,7 +35,10 @@ namespace YouLExp.Core.Tests
             zz = "测"[0].GetCNCharSpell();
             Assert.AreEqual(zz, "C");
             zz = "A,账号？?!.。这是）（()【】{}[]jh".GetCNCharSpell();
-            Assert.AreEqual(zz, "A,ZH??!.?ZS??()??{}[]jh");
+            Assert.AreEqual(zz, "A,ZH??!.?ZS??()??{}[]JH");
+
+            zz = "亳漯濮衢儋".GetChineseSpell();
+            Assert.AreEqual(zz, "BLPQD");
         }
     }
 }

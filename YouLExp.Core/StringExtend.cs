@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using YouLExp.Core.Data;
 
 namespace YouLExp.Core
 {
@@ -61,6 +62,7 @@ namespace YouLExp.Core
         /// <param name="chText">默认获取字符串第一个字符的首字母</param>
         /// <param name="isOR">识别字符失败后是否返回原值</param>
         /// <returns>返回每个字的拼音首字母组成的字符串 </returns>
+        [Obsolete("生僻字在此方法中，无法识别，请使用GetChineseSpell方法。")]
         public static string GetCNCharSpell(this string chText, bool isOR = false)
         {
             int len = chText.Length;
@@ -80,9 +82,10 @@ namespace YouLExp.Core
         /// <param name="cnchar">默认获取字符串第一个字符的首字母</param>
         /// <param name="isOR">识别字符失败后是否返回原值</param>
         /// <returns>返回字符串第一个字的首字母</returns>
+        [Obsolete("生僻字在此方法中，无法识别，请使用GetChineseSpell方法。")]
         public static string GetCNCharSpell(this char cnchar, bool isOR = false)
         {
-            return GetSpell(cnchar.ToString(), isOR);
+            return GetSpell(cnchar.ToString(), isOR).ToUpper();
 
             //var val = Encoding.Default.GetBytes(chChar);
             //long longchar;
@@ -145,7 +148,6 @@ namespace YouLExp.Core
             //}
         }
 
-
         private static string GetSpell(string cnChar, bool isOriginalReturn)
         {
             //将汉字转化为ASNI码,二进制序列 
@@ -162,7 +164,7 @@ namespace YouLExp.Core
                 {
                     max = 55290;
 
-                    if (i != 25) 
+                    if (i != 25)
                         max = areacode[i + 1];
 
                     if (areacode[i] <= code && code < max)
@@ -172,6 +174,42 @@ namespace YouLExp.Core
             }
             else return cnChar;
         }
+
         #endregion
+
+        /// <summary> 
+        /// 获得一个字符串的汉语拼音码(包含生僻词)
+        /// <para>此方法目前包含了20901个汉字，收录的字符的Unicode编码范围为19968至40869</para>
+        /// </summary> 
+        /// <param name="strText">字符串</param> 
+        /// <returns>汉语拼音码,该字符串只包含大写的英文字母</returns> 
+        public static string GetChineseSpell(this string strText)
+        {
+            if (strText == null || strText.Length == 0)
+                return strText;
+            StringBuilder text = new StringBuilder();
+            char vChar;
+
+            for (int i = 0; i < strText.Length; i++)
+            {
+                vChar = strText[i];
+
+                if ((vChar >= 'a' && vChar <= 'z') || (vChar >= 'A' && vChar <= 'Z'))
+                    text.Append(char.ToUpper(vChar));
+                else if ((int)vChar >= 19968 && (int)vChar <= 40869)
+                {
+                    for (int j = 0; i < StringExtComm.ChineseCharList.Length; j++)
+                    {
+                        if (StringExtComm.ChineseCharList[j].IndexOf(vChar) > 0)
+                        {
+                            text.Append(StringExtComm.ChineseCharList[j][0]);
+                            break;
+                        }
+                    }
+                }
+            }
+            return text.ToString();
+        }
+
     }
 }

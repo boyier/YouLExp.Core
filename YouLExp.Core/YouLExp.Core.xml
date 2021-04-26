@@ -41,6 +41,12 @@
             <param name="colunmName">列名</param>
             <returns></returns>
         </member>
+        <member name="F:YouLExp.Core.Data.StringExtComm.ChineseCharList">
+            <summary> 
+            汉字拼音首字母列表
+            包含了20901个汉字,收录的字符的Unicode编码范围为19968至40869
+            </summary>
+        </member>
         <member name="T:YouLExp.Core.DateTimeExtend">
             <summary>
             <see cref="T:System.DateTime"/>扩展类
@@ -266,6 +272,14 @@
             <param name="cnchar">默认获取字符串第一个字符的首字母</param>
             <param name="isOR">识别字符失败后是否返回原值</param>
             <returns>返回字符串第一个字的首字母</returns>
+        </member>
+        <member name="M:YouLExp.Core.StringExtend.GetChineseSpell(System.String)">
+            <summary> 
+            获得一个字符串的汉语拼音码(包含生僻词)
+            <para>此方法目前包含了20901个汉字，收录的字符的Unicode编码范围为19968至40869</para>
+            </summary> 
+            <param name="strText">字符串</param> 
+            <returns>汉语拼音码,该字符串只包含大写的英文字母</returns> 
         </member>
         <member name="T:YouLExp.Core.ValidExtend">
             <summary>
