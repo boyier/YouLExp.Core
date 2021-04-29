@@ -30,15 +30,17 @@ namespace YouLExp.Core.Tests
         [TestMethod()]
         public void GetCNCharSpellTest()
         {
-            var zz = "测试账号".GetCNCharSpell();
-            Assert.AreEqual(zz,"CSZH");
-            zz = "测"[0].GetCNCharSpell();
-            Assert.AreEqual(zz, "C");
-            zz = "A,账号？?!.。这是）（()【】{}[]jh".GetCNCharSpell();
-            Assert.AreEqual(zz, "A,ZH??!.?ZS??()??{}[]JH");
+            //var zz = "测试账号".GetCNCharSpell();
+            //Assert.AreEqual(zz,"CSZH");
+            //zz = "测"[0].GetCNCharSpell();
+            //Assert.AreEqual(zz, "C");
+            //zz = "A,账号？?!.。这是）（()【】{}[]jh".GetCNCharSpell();
+            //Assert.AreEqual(zz, "A,ZH??!.?ZS??()??{}[]JH");
 
-            zz = "亳漯濮衢儋".GetChineseSpell();
+            var zz = "亳漯濮衢儋".GetChineseSpell();
             Assert.AreEqual(zz, "BLPQD");
+            zz = "佛宿长重".GetChineseSpell();
+            Assert.AreEqual(zz, "FSCC");
         }
     }
 }
