@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Text;
 using YouLExp.Core.Data;
 
@@ -16,10 +18,7 @@ namespace YouLExp.Core
         /// <param name="values">值</param>
         /// <param name="separator">分隔符</param>
         /// <returns>由分隔符字符串分隔的值的元素组成的字符串。如果值是空数组，则该方法返回<see cref="string.Empty"/> </returns>
-        public static string ToStringJoin(this IEnumerable<string> values, string separator)
-        {
-            return string.Join(separator, values);
-        }
+        public static string ToStringJoin(this IEnumerable<string> values, string separator) => string.Join(separator, values);
 
         /// <summary>
         /// 通过指定分隔符连接集合中每个成员。
@@ -27,10 +26,7 @@ namespace YouLExp.Core
         /// <param name="values">值</param>
         /// <param name="separator">分隔符</param>
         /// <returns>由分隔符字符串分隔的值的元素组成的字符串。如果值是空数组，则该方法返回<see cref="string.Empty"/> </returns>
-        public static string ToStringJoin(this IEnumerable<object> values, string separator)
-        {
-            return string.Join(separator, values);
-        }
+        public static string ToStringJoin(this IEnumerable<object> values, string separator) => string.Join(separator, values);
 
         /// <summary>
         /// 通过指定分隔符连接集合中每个成员。
@@ -38,10 +34,7 @@ namespace YouLExp.Core
         /// <param name="values">值</param>
         /// <param name="separator">分隔符</param>
         /// <returns>由分隔符字符串分隔的值的元素组成的字符串。如果值是空数组，则该方法返回<see cref="string.Empty"/> </returns>
-        public static string ToStringJoin(this object[] values, string separator)
-        {
-            return string.Join(separator, values);
-        }
+        public static string ToStringJoin(this object[] values, string separator) => string.Join(separator, values);
 
         /// <summary>
         /// 通过指定分隔符连接集合中每个成员。
@@ -49,10 +42,7 @@ namespace YouLExp.Core
         /// <param name="values">值</param>
         /// <param name="separator">分隔符</param>
         /// <returns>由分隔符字符串分隔的值的元素组成的字符串。如果值是空数组，则该方法返回<see cref="string.Empty"/> </returns>
-        public static string ToStringJoin<T>(this IEnumerable<T> values, string separator)
-        {
-            return string.Join(separator, values);
-        }
+        public static string ToStringJoin<T>(this IEnumerable<T> values, string separator) => string.Join(separator, values);
 
         #region 
 
@@ -198,11 +188,11 @@ namespace YouLExp.Core
                     text.Append(char.ToUpper(vChar));
                 else if ((int)vChar >= 19968 && (int)vChar <= 40869)
                 {
-                    for (int j = 0; i < StringExtComm.ChineseCharList.Length; j++)
+                    for (int j = 0; i < CHExtComm.ChineseCharList.Length; j++)
                     {
-                        if (StringExtComm.ChineseCharList[j].IndexOf(vChar) > 0)
+                        if (CHExtComm.ChineseCharList[j].IndexOf(vChar) > 0)
                         {
-                            text.Append(StringExtComm.ChineseCharList[j][0]);
+                            text.Append(CHExtComm.ChineseCharList[j][0]);
                             break;
                         }
                     }

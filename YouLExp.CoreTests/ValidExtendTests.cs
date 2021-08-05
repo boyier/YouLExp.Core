@@ -3,6 +3,9 @@ using YouLExp.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using YouLExp.Core.Utils;
+using YouLExp.Core.Data;
+using System.Linq;
 
 namespace YouLExp.Core.Tests
 {
@@ -41,6 +44,47 @@ namespace YouLExp.Core.Tests
             Assert.AreEqual(zz, "BLPQD");
             zz = "佛宿长重".GetChineseSpell();
             Assert.AreEqual(zz, "FSCC");
+        }
+
+        [TestMethod()]
+        public void LZWTest()
+        {
+            //string str = string.Join(",", StringExtComm.ChineseCharList);
+
+            //List<int[]> codess = new List<int[]>();
+            //int[] intss;
+
+            //foreach (var item in CHExtComm.ChineseCharList)
+            //{
+            //    codess.Add(LZW.EnLZW(Encoding.Default.GetBytes(item)));
+            //}
+
+            //List<byte[]> code = new List<byte[]>();
+
+            //foreach (var item in codess)
+            //{
+            //    code.Add(LZW.UnLZW(item));
+            //}
+
+            //string[] newstr = new string[codess.Count];
+
+            //for (int i = 0; i < newstr.Length; i++)
+            //{
+            //    newstr[i] = Encoding.Default.GetString(code[i]);
+            //}
+
+            ////验证
+            //for (int i = 0; i < CHExtComm.ChineseCharList.Length; i++)
+            //{
+            //    Assert.AreEqual(CHExtComm.ChineseCharList[i], newstr[i]);
+            //}
+
+            //int max = codess.Max(q => q.Length);
+
+            ////测试成功
+            //var sss = newstr;
+            //string sstr = codess.Select(s => $"new int[]{{{string.Join(",", s)}}}").ToStringJoin(",\n");
+
         }
     }
 }
