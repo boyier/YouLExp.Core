@@ -43,7 +43,13 @@ namespace YouLExp.Core.Comparers
         /// <inheritdoc/>
         public int GetHashCode(T obj)
         {
-            return obj.GetHashCode();
+            //obj.ToString().GetHashCode() 这里的tostring方法返回内容相同，那么就会使用bool Equals(TSource x, TSource y)进行比较
+            //obj.GetHashCode()这种会因为引用地址不同导致获取的哈希值不同
+            if (obj.Equals(null))
+                return 0;
+            else
+                return obj.ToString().GetHashCode();
+            //return obj.GetHashCode();
         }
     }
 }
