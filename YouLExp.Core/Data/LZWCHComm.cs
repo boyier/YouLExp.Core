@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YouLExp.Core.Data
 {
-    public class LZWCHComm
+    internal class LZWCHComm
     {
         public static int[][] ChineseCharList =
         {
